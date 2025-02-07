@@ -30,7 +30,7 @@ namespace Carnac.UI
             WindowUtilities.SetAlwaysMaxSize(hwnd);
             if (!System.Diagnostics.Debugger.IsAttached)
             {
-                Win32Methods.SetWindowExTransparentAndNotInWindowList(hwnd);
+                Win32Methods.SetWindowExTransparent(hwnd);
                 var timer = new Timer(100);
                 timer.Elapsed +=
                     (s, x) =>
