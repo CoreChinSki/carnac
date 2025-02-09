@@ -41,6 +41,9 @@ namespace Carnac.Logic.Models
 
         [DefaultValue(false)]
         public bool AutoUpdate { get; set; }
+		
+		[DefaultValue(true)]
+        public bool ShowOverlay { get; set; }
 
         //Used to determine which from it's leftmost co-ord
         double left;

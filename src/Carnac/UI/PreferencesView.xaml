@@ -86,7 +86,10 @@
                         </ui:PreferencesField>
                         <Separator Height="10" Margin="0"/>
                         <ui:PreferencesField Header="Auto Update">
-                            <CheckBox IsChecked="{Binding Settings.AutoUpdate}" Content="auto check updates from GitHub (need to restart this program)" />
+                            <CheckBox IsChecked="{Binding Settings.AutoUpdate}" Content="Auto check updates from GitHub (need to restart this program)" />
+                        </ui:PreferencesField>
+                        <ui:PreferencesField Header="Show Overlay">
+                            <CheckBox IsChecked="{Binding Settings.ShowOverlay}" Content="Show overlay e.g. for OBS (need to restart this program)" />
                         </ui:PreferencesField>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="1" Margin="5">

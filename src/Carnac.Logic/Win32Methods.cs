@@ -46,5 +46,18 @@ namespace Carnac.Logic
             var extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
             SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_TRANSPARENT);
         }
+		
+        public static void SetWindowInWindowList(IntPtr hwnd, bool showoverlay)
+        {
+            var extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
+			if (showoverlay)
+			{
+            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle & ~WS_EX_TOOLWINDOW);
+			}
+			else
+			{
+            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_TOOLWINDOW);
+			}
+        }
     }
 }

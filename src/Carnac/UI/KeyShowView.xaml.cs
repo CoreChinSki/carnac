@@ -28,9 +28,11 @@ namespace Carnac.UI
 
             var hwnd = new WindowInteropHelper(this).Handle;
             WindowUtilities.SetAlwaysMaxSize(hwnd);
+            var vm = ((KeyShowViewModel)DataContext);
             if (!System.Diagnostics.Debugger.IsAttached)
             {
-                Win32Methods.SetWindowExTransparent(hwnd);
+				Win32Methods.SetWindowExTransparent(hwnd);
+				Win32Methods.SetWindowInWindowList(hwnd, vm.Settings.ShowOverlay);
                 var timer = new Timer(100);
                 timer.Elapsed +=
                     (s, x) =>
@@ -44,7 +46,6 @@ namespace Carnac.UI
                 timer.Start();
             }
 
-            var vm = ((KeyShowViewModel)DataContext);
             Left = vm.Settings.Left;
             vm.Settings.LeftChanged += SettingsLeftChanged;
             WindowState = WindowState.Maximized;
